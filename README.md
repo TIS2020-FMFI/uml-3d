@@ -1,6 +1,8 @@
 # UML_3D
 Repozitár tímu Cykliskti
+
 Projekt: Animácie modelov softvérových architektúr
+
 Členovia: Miriam Cidoríková, Adam Chovanec, Fedor Kalantaev, Marek Ďurana
 
 Zadávateľ: doc. Ing. Ivan Polášek, PhD.
