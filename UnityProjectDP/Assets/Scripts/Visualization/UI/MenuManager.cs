@@ -15,6 +15,12 @@ public class MenuManager : Singleton<MenuManager>
     FileLoader fileLoader;
 
     //UI Panels
+    //------------------------- my Code
+    [SerializeField]
+    private GameObject panelSavedCode;
+    [SerializeField]
+    private TMP_InputField savedScript;
+    //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
     [SerializeField]
@@ -293,6 +299,11 @@ public class MenuManager : Singleton<MenuManager>
         {
             panelAnimationPlay.SetActive(true);
             mainScreen.SetActive(false);
+            //My code------------
+            panelSavedCode.SetActive(true);
+            introScreen.SetActive(false);
+            savedScript.text = AnimationData.Instance.selectedAnim.Code;
+            //My code------------
             if (Animation.Instance.standardPlayMode)
             {
                 panelStepMode.SetActive(false);
