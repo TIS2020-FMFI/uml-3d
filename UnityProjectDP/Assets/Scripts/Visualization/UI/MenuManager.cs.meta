@@ -3,7 +3,33 @@ guid: d5a788b01f530a947b65ae1574239760
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - panelSavedCode: {instanceID: 0}
+  - savedScript: {instanceID: 0}
+  - introScreen: {instanceID: 0}
+  - animationScreen: {instanceID: 0}
+  - mainScreen: {instanceID: 0}
+  - saveBtn: {instanceID: 0}
+  - animationsDropdown: {instanceID: 0}
+  - scriptCode: {instanceID: 0}
+  - PanelColors: {instanceID: 0}
+  - PanelInteractiveIntro: {instanceID: 0}
+  - PanelInteractive: {instanceID: 0}
+  - PanelMethod: {instanceID: 0}
+  - ClassNameTxt: {instanceID: 0}
+  - InteractiveText: {instanceID: 0}
+  - PanelInteractiveShow: {instanceID: 0}
+  - classFromTxt: {instanceID: 0}
+  - classToTxt: {instanceID: 0}
+  - methodFromTxt: {instanceID: 0}
+  - methodToTxt: {instanceID: 0}
+  - PanelInteractiveCompleted: {instanceID: 0}
+  - speedSlider: {instanceID: 0}
+  - speedLabel: {instanceID: 0}
+  - panelError: {instanceID: 0}
+  - panelAnimationPlay: {instanceID: 0}
+  - panelStepMode: {instanceID: 0}
+  - panelPlayMode: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
