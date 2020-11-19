@@ -1,5 +1,5 @@
 # UML_3D
-Repozitár tímu Cykliskti
+Repozitár tímu Cyklisti
 
 Projekt: Animácie modelov softvérových architektúr
 
