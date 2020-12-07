@@ -29,6 +29,11 @@ public class Animation : Singleton<Animation>
     public bool nextStep=false;
     private bool prevStep = false;
     private List<GameObject> Fillers;
+    ///
+    private ScriptParser sp;
+    public TMP_InputField script;
+    private string originalText;
+    private int my_index;
     private void Awake()
     {
         classDiagram = GameObject.Find("ClassDiagram").GetComponent<ClassDiagram>();
@@ -71,8 +76,14 @@ public class Animation : Singleton<Animation>
         Debug.Log("Done executing: " + temp.ToString());
         ACS.ClearSteps();
         Success = true;
-    
-        if(Success)
+
+        ////
+        originalText = Code;
+        ScriptParser.Instance.Parse(Code);
+        my_index = 0;
+        ////
+
+        if (Success)
         {
             Debug.Log("We have " + ACS.AnimationSteps.Count() + " anim sequences");
             foreach (List<AnimationCommand> AnimationSequence in ACS.AnimationSteps)
@@ -126,7 +137,6 @@ public class Animation : Singleton<Animation>
         HighlightClass(className, true);
         yield return new WaitForSeconds(animationLength);
         HighlightClass(className, false);
-
     }
 
     //Couroutine that can be used to Highlight method for a given duration of time
@@ -146,6 +156,7 @@ public class Animation : Singleton<Animation>
     }
     public IEnumerator AnimateFill(OALCall Call)
     {
+        ScriptParser.Instance.HighlightEdge(my_index, script);
         GameObject newFiller = Instantiate(LineFill);
         Fillers.Add(newFiller);
         newFiller.transform.position = classDiagram.graph.transform.GetChild(0).transform.position;
@@ -181,10 +192,12 @@ public class Animation : Singleton<Animation>
             if (isToBeHighlighted)
             {
                 bh.HighlightBackground();
+               // ScriptParser.Instance.HighlightClass(my_index, script);
             }
             else
             {
                 bh.UnhighlightBackground();
+               // script.text = originalText;
             }
         }
         else
@@ -210,10 +223,12 @@ public class Animation : Singleton<Animation>
             if (isToBeHighlighted)
             {
                 th.HighlightLine(methodName);
+                //ScriptParser.Instance.HighlightMethod(my_index, script);
             }
             else
             {
                 th.UnHighlightLine(methodName);
+                //script.text = originalText;
             }
 
         }
@@ -235,6 +250,7 @@ public class Animation : Singleton<Animation>
             else
             {
                 edge.GetComponent<UEdge>().ChangeColor(Color.white);
+                //script.text = originalText;
             }
         }
         else
@@ -259,12 +275,12 @@ public class Animation : Singleton<Animation>
             {
                 switch (step)
                 {
-                    case 0: HighlightClass(Call.CallerClassName, true); break;
-                    case 1: HighlightMethod(Call.CallerClassName, Call.CallerMethodName, true); break;
+                    case 0: ScriptParser.Instance.HighlightClass(my_index, script); HighlightClass(Call.CallerClassName, true); break;
+                    case 1: ScriptParser.Instance.HighlightMethod(my_index, script); HighlightMethod(Call.CallerClassName, Call.CallerMethodName, true); break;
                     case 2: yield return StartCoroutine(AnimateFill(Call)); timeModifier = 0f; break;
                     case 3: HighlightEdge(Call.RelationshipName, true); timeModifier = 0.5f; break;
-                    case 4: HighlightClass(Call.CalledClassName, true); timeModifier = 1f; break;
-                    case 5: HighlightMethod(Call.CalledClassName, Call.CalledMethodName, true); timeModifier = 1.25f; break;
+                    case 4: ScriptParser.Instance.HighlightClass(my_index, script); HighlightClass(Call.CalledClassName, true); timeModifier = 1f; break;
+                    case 5: ScriptParser.Instance.HighlightMethod(my_index, script); HighlightMethod(Call.CalledClassName, Call.CalledMethodName, true); timeModifier = 1.25f; break;
                     case 6:
                         HighlightClass(Call.CallerClassName, false);
                         HighlightMethod(Call.CallerClassName, Call.CallerMethodName, false);
@@ -272,6 +288,8 @@ public class Animation : Singleton<Animation>
                         HighlightMethod(Call.CalledClassName, Call.CalledMethodName, false);
                         HighlightEdge(Call.RelationshipName, false);
                         timeModifier = 1f;
+                        my_index++;
+                        script.text = originalText;
                         break;
 
                 }

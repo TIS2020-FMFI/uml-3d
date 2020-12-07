@@ -1,2 +1,2 @@
-call from HotelOfferVisitor::visitSilverCreditCard() to SilverCreditCard::getSilverCardValue() across R13;
-
+call from OfferVisitor::visitGoldCreditCard() to GoldCreditCard::getGoldCardValue() across R11;
+scasca
