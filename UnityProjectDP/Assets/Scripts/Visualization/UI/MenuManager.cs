@@ -19,7 +19,9 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField]
     private GameObject panelSavedCode;
     [SerializeField]
-    private TMP_InputField savedScript;
+    public TMP_InputField savedScript;
+    [SerializeField]
+    private GameObject panelMethod;
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -118,7 +120,8 @@ public class MenuManager : Singleton<MenuManager>
         PanelMethod.SetActive(false);
         PanelInteractive.SetActive(true);
         PanelInteractiveCompleted.SetActive(false);
-        animationScreen.SetActive(true);
+        //animationScreen.SetActive(true);
+        panelMethod.SetActive(true);
         mainScreen.SetActive(false);
     }
     public void EndAnimate()
@@ -126,7 +129,8 @@ public class MenuManager : Singleton<MenuManager>
         isCreating = false;
         PanelInteractiveIntro.SetActive(false);
         PanelInteractive.SetActive(false);
-        animationScreen.SetActive(false);
+        //animationScreen.SetActive(false);
+        panelMethod.SetActive(false);
         saveBtn.interactable = false;
         mainScreen.SetActive(true);
         introScreen.SetActive(true);
@@ -303,6 +307,7 @@ public class MenuManager : Singleton<MenuManager>
             panelSavedCode.SetActive(true);
             introScreen.SetActive(false);
             savedScript.text = AnimationData.Instance.selectedAnim.Code;
+            Animation.Instance.script = savedScript;
             //My code------------
             if (Animation.Instance.standardPlayMode)
             {
