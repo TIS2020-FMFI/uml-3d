@@ -283,7 +283,7 @@ public class MenuManager : Singleton<MenuManager>
         //fileLoader.SaveAnimation(newMethod);
         string[] lines = methodCode.text.Split(' ');
         using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"C:\Users\Adam\Desktop\uml-3d\UnityProjectDP\Methods\"+methodBodyName+".oal"))
+            new System.IO.StreamWriter(@"Methods/"+methodBodyName+ "menoMetody.oal"))
         {
             foreach (string line in lines)
             {
