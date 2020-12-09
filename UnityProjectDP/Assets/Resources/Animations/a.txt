@@ -1,3 +1,1 @@
-call from OfferVisitor::visitGoldCreditCard() to GoldCreditCard::accept() across R11;
-call from GasOfferVisitor::visitGoldCreditCard() to GoldCreditCard::getGoldCardValue() across R7;
-
+axasdfasdgadgadgadg

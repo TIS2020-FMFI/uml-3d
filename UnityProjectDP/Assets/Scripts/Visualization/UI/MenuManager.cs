@@ -21,7 +21,12 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField]
     public TMP_InputField savedScript;
     [SerializeField]
-    private GameObject panelMethod;
+    public TMP_InputField methodCode;
+    [SerializeField]
+    private string methodBodyName;
+    [SerializeField]
+    private GameObject panelBody;
+    bool isAnimating = true;
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -112,6 +117,7 @@ public class MenuManager : Singleton<MenuManager>
     {
         InteractiveText.GetComponent<DotsAnimation>().currentText= "Select source class\n for call function\ndirectly in diagram\n.";
         scriptCode.text = "";
+        methodCode.text = "";
         OALScriptBuilder.GetInstance().Clear();
         InteractiveData interactiveData = new InteractiveData();
         isCreating = true;
@@ -120,17 +126,32 @@ public class MenuManager : Singleton<MenuManager>
         PanelMethod.SetActive(false);
         PanelInteractive.SetActive(true);
         PanelInteractiveCompleted.SetActive(false);
-        //animationScreen.SetActive(true);
-        panelMethod.SetActive(true);
+        SwitchToAnimate();
         mainScreen.SetActive(false);
     }
+
+    public void SwitchToAnimate()
+    {
+        animationScreen.SetActive(true);
+        panelBody.SetActive(false);
+        
+        isAnimating = true;
+    }
+
+    public void SwitchToMethod()
+    {
+        panelBody.SetActive(true);
+        animationScreen.SetActive(false);
+        isAnimating = false;
+    }
+
     public void EndAnimate()
     {
         isCreating = false;
         PanelInteractiveIntro.SetActive(false);
         PanelInteractive.SetActive(false);
-        //animationScreen.SetActive(false);
-        panelMethod.SetActive(false);
+        animationScreen.SetActive(false);
+        panelBody.SetActive(false);
         saveBtn.interactable = false;
         mainScreen.SetActive(true);
         introScreen.SetActive(true);
@@ -191,27 +212,45 @@ public class MenuManager : Singleton<MenuManager>
     }
     public void SelectMethod(int buttonID)
     {
-        if (interactiveData.fromMethod==null)
+        if (isAnimating == false)
         {
-            string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
-            //scriptCode.text += "\n" + "call(\n" + ClassNameTxt.text + ", " + methodName+",";
-            InteractiveText.GetComponent<DotsAnimation>().currentText = "Select target class\nfor call function\ndirectly in diagram\n.";
-            interactiveData.fromMethod = methodName;
-            Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, true);
-            UpdateInteractiveShow();
-        }
+            if (interactiveData.fromMethod == null)
+            {
+                string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
+                methodBodyName = methodName;
+                //scriptCode.text += "\n" + "call(\n" + ClassNameTxt.text + ", " + methodName+",";
+                //InteractiveText.GetComponent<DotsAnimation>().currentText = "Select target class\nfor call function\ndirectly in diagram\n.";
+                interactiveData.fromMethod = methodName;
+                Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, true);
+                UpdateInteractiveShow();
+            }
+        } 
         else
         {
-            string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
-            //scriptCode.text += "\n"+ClassNameTxt.text+", "+methodName+"\n);";
-            InteractiveText.GetComponent<DotsAnimation>().currentText = "Select source class\nfor call function\ndirectly in diagram\n.";
-            interactiveData.toMethod = methodName;
-            UpdateInteractiveShow();
-            Animation.Instance.HighlightClass(interactiveData.fromClass, false);
-            Animation.Instance.HighlightClass(interactiveData.toClass, false);
-            Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, false);
-            WriteCode();
+            if (interactiveData.fromMethod == null)
+            {
+                string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
+                //scriptCode.text += "\n" + "call(\n" + ClassNameTxt.text + ", " + methodName+",";
+                InteractiveText.GetComponent<DotsAnimation>().currentText = "Select target class\nfor call function\ndirectly in diagram\n.";
+                interactiveData.fromMethod = methodName;
+                Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, true);
+                UpdateInteractiveShow();
+            }
+            else
+            {
+                string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
+                //scriptCode.text += "\n"+ClassNameTxt.text+", "+methodName+"\n);";
+                InteractiveText.GetComponent<DotsAnimation>().currentText = "Select source class\nfor call function\ndirectly in diagram\n.";
+                interactiveData.toMethod = methodName;
+                UpdateInteractiveShow();
+                Animation.Instance.HighlightClass(interactiveData.fromClass, false);
+                Animation.Instance.HighlightClass(interactiveData.toClass, false);
+                Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, false);
+                WriteCode();
+            }
         }
+
+        
         PanelInteractiveIntro.SetActive(true);
         PanelMethod.SetActive(false);
     }
@@ -234,6 +273,23 @@ public class MenuManager : Singleton<MenuManager>
         scriptCode.GetComponent<CodeHighlighter>().RemoveColors();
         Anim newAnim = new Anim("", scriptCode.text);
         fileLoader.SaveAnimation(newAnim);
+        EndAnimate();
+    }
+
+    public void SaveMethod()
+    {
+        methodCode.GetComponent<CodeHighlighter>().RemoveColors();
+        MethodBody newMethod = new MethodBody("", methodCode.text);
+        //fileLoader.SaveAnimation(newMethod);
+        string[] lines = methodCode.text.Split(' ');
+        using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"C:\Users\Adam\Desktop\uml-3d\UnityProjectDP\Methods\"+methodBodyName+".oal"))
+        {
+            foreach (string line in lines)
+            {
+                file.WriteLine(line);
+            }
+        }
         EndAnimate();
     }
     public void SelectAnimation()
