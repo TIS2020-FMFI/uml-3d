@@ -8,9 +8,9 @@ using System.Text;
 
 public static class XMIParser
 {
-    static String path = @"C:/AnimArch/exportedXMI.xml";
+    static String path = @"diagram/exportedXMI.xml";
     //static String path = "C:/TPFIIT/visitor_v2_s_client_metodami.xml";
-    static String currDiagramIDPath = @"C:/AnimArch/currDiagramID.txt";
+    static String currDiagramIDPath = @"diagram/currDiagramID.txt";
     public static List<String> parseCurrentDiagramElementsIDs()
     {
         //Document
