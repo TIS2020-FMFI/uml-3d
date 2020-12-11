@@ -1041,7 +1041,7 @@ MonoBehaviour:
   panelSavedCode: {fileID: 1394674179}
   savedScript: {fileID: 2131446209}
   methodCode: {fileID: 580564468}
-  methodBodyName: 
+  methodCaption: {fileID: 162987416}
   panelBody: {fileID: 1186792439}
   introScreen: {fileID: 2115299083}
   animationScreen: {fileID: 325653980}
@@ -1840,8 +1840,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

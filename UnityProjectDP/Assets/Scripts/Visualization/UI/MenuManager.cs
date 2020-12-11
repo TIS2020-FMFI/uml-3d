@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor;
 using System;
-using System.Text.RegularExpressions;
 using OALProgramControl;
 using Assets.Scripts.Animation;
+using System.IO;
 
 public class MenuManager : Singleton<MenuManager>
 {
@@ -23,10 +21,13 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField]
     public TMP_InputField methodCode;
     [SerializeField]
-    private string methodBodyName;
+    private TMP_Text methodCaption;
     [SerializeField]
     private GameObject panelBody;
-    bool isAnimating = true;
+
+    private bool isAnimating = true;
+    private string methodBodyName;
+    private string methodBodyClass;
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -130,12 +131,22 @@ public class MenuManager : Singleton<MenuManager>
         mainScreen.SetActive(false);
     }
 
+    public void ResetData()
+    {
+        Animation.Instance.UnhighlightAll();
+        interactiveData.fromClass = null;
+        interactiveData.fromMethod = null;
+        interactiveData.relationshipName = null;
+        interactiveData.toClass = null;
+        interactiveData.toMethod = null;
+    }
+
     public void SwitchToAnimate()
     {
         animationScreen.SetActive(true);
         panelBody.SetActive(false);
-        
         isAnimating = true;
+        ResetData();
     }
 
     public void SwitchToMethod()
@@ -143,6 +154,25 @@ public class MenuManager : Singleton<MenuManager>
         panelBody.SetActive(true);
         animationScreen.SetActive(false);
         isAnimating = false;
+        if (methodBodyName != null)
+        {
+            methodCode.text = readMethodCode();
+        }
+        ResetData();
+    }
+
+    public string readMethodCode()
+    {
+        try
+        {
+            //string[] lines = File.ReadAllLines(@"Methods/" + methodBodyName + ".oal");
+            return File.ReadAllText(@"Methods/" + methodBodyName + ".oal");
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine(e.Message);
+            return "";
+        }
     }
 
     public void EndAnimate()
@@ -173,8 +203,9 @@ public class MenuManager : Singleton<MenuManager>
         {
             foreach (Method m in selectedClass.Methods)
             {
-                if (interactiveData.fromMethod == null)
+                if (isAnimating == false)
                 {
+                    methodBodyClass = name;
                     if (i < methodButtons.Count)
                     {
                         methodButtons[i].SetActive(true);
@@ -184,25 +215,47 @@ public class MenuManager : Singleton<MenuManager>
                     {
                         Animation.Instance.HighlightClass(interactiveData.fromClass, false);
                     }
+                    if (interactiveData.fromMethod != null)
+                    {
+                        Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, false);
+                    }
+                    interactiveData.fromMethod = null;
                     interactiveData.fromClass = name;
                     Animation.Instance.HighlightClass(interactiveData.fromClass, true);
                     i++;
-
-                }
+                } 
                 else
-                {
-                    if (i < methodButtons.Count && ClassDiagram.Instance.FindEdge(interactiveData.fromClass, name) != null)
+                {   
+                    if (interactiveData.fromMethod == null)
                     {
-                        methodButtons[i].SetActive(true);
-                        methodButtons[i].GetComponentInChildren<TMP_Text>().text = m.Name + "()";
+                        if (i < methodButtons.Count)
+                        {
+                            methodButtons[i].SetActive(true);
+                            methodButtons[i].GetComponentInChildren<TMP_Text>().text = m.Name + "()";
+                        }
+                        if (interactiveData.fromClass != null)
+                        {
+                            Animation.Instance.HighlightClass(interactiveData.fromClass, false);
+                        }
+                        interactiveData.fromClass = name;
+                        Animation.Instance.HighlightClass(interactiveData.fromClass, true);
+                        i++;
                     }
-                    if (interactiveData.toClass != null)
+                    else
                     {
-                        Animation.Instance.HighlightClass(interactiveData.toClass, false);
+                        if (i < methodButtons.Count && ClassDiagram.Instance.FindEdge(interactiveData.fromClass, name) != null)
+                        {
+                            methodButtons[i].SetActive(true);
+                            methodButtons[i].GetComponentInChildren<TMP_Text>().text = m.Name + "()";
+                        }
+                        if (interactiveData.toClass != null)
+                        {
+                            Animation.Instance.HighlightClass(interactiveData.toClass, false);
+                        }
+                        interactiveData.toClass = name;
+                        Animation.Instance.HighlightClass(interactiveData.toClass, true);
+                        i++;
                     }
-                    interactiveData.toClass = name;
-                    Animation.Instance.HighlightClass(interactiveData.toClass, true);
-                    i++;
                 }
             }
         }
@@ -217,11 +270,13 @@ public class MenuManager : Singleton<MenuManager>
             if (interactiveData.fromMethod == null)
             {
                 string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
-                methodBodyName = methodName;
-                //scriptCode.text += "\n" + "call(\n" + ClassNameTxt.text + ", " + methodName+",";
-                //InteractiveText.GetComponent<DotsAnimation>().currentText = "Select target class\nfor call function\ndirectly in diagram\n.";
+                methodBodyName = methodBodyClass + '_' + methodName;
+                string[] tempText = methodBodyName.Split('_');
+                methodCaption.text = tempText[0]+'\n'+tempText[1];
+                InteractiveText.GetComponent<DotsAnimation>().currentText = "Select target class\nfor call function\ndirectly in diagram\n.";
                 interactiveData.fromMethod = methodName;
                 Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, true);
+                methodCode.text = readMethodCode();
                 UpdateInteractiveShow();
             }
         } 
@@ -230,7 +285,6 @@ public class MenuManager : Singleton<MenuManager>
             if (interactiveData.fromMethod == null)
             {
                 string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
-                //scriptCode.text += "\n" + "call(\n" + ClassNameTxt.text + ", " + methodName+",";
                 InteractiveText.GetComponent<DotsAnimation>().currentText = "Select target class\nfor call function\ndirectly in diagram\n.";
                 interactiveData.fromMethod = methodName;
                 Animation.Instance.HighlightMethod(interactiveData.fromClass, interactiveData.fromMethod, true);
@@ -239,7 +293,6 @@ public class MenuManager : Singleton<MenuManager>
             else
             {
                 string methodName = methodButtons[buttonID].GetComponentInChildren<TMP_Text>().text;
-                //scriptCode.text += "\n"+ClassNameTxt.text+", "+methodName+"\n);";
                 InteractiveText.GetComponent<DotsAnimation>().currentText = "Select source class\nfor call function\ndirectly in diagram\n.";
                 interactiveData.toMethod = methodName;
                 UpdateInteractiveShow();
@@ -258,11 +311,11 @@ public class MenuManager : Singleton<MenuManager>
     {
         if (!scriptCode.text.EndsWith("\n") && scriptCode.text.Length > 1)
             scriptCode.text += "\n";
-        scriptCode.text += OALScriptBuilder.GetInstance().AddCall(
-            interactiveData.fromClass, interactiveData.fromMethod,
-            OALProgram.Instance.RelationshipSpace.GetRelationshipByClasses(interactiveData.fromClass, interactiveData.toClass).RelationshipName, interactiveData.toClass,
-            interactiveData.toMethod
-        );
+            scriptCode.text += OALScriptBuilder.GetInstance().AddCall(
+                interactiveData.fromClass, interactiveData.fromMethod,
+                OALProgram.Instance.RelationshipSpace.GetRelationshipByClasses(interactiveData.fromClass, interactiveData.toClass).RelationshipName, interactiveData.toClass,
+                interactiveData.toMethod
+            );
 
         interactiveData = new InteractiveData();
     }
@@ -273,6 +326,7 @@ public class MenuManager : Singleton<MenuManager>
         scriptCode.GetComponent<CodeHighlighter>().RemoveColors();
         Anim newAnim = new Anim("", scriptCode.text);
         fileLoader.SaveAnimation(newAnim);
+        Animation.Instance.UnhighlightAll();
         EndAnimate();
     }
 
@@ -280,10 +334,10 @@ public class MenuManager : Singleton<MenuManager>
     {
         methodCode.GetComponent<CodeHighlighter>().RemoveColors();
         MethodBody newMethod = new MethodBody("", methodCode.text);
-        //fileLoader.SaveAnimation(newMethod);
-        string[] lines = methodCode.text.Split(' ');
+        Animation.Instance.UnhighlightAll();
+        string[] lines = methodCode.text.Split('\n');
         using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"Methods/"+methodBodyName+ ".oal"))
+            new System.IO.StreamWriter(@"Methods/" + methodBodyName + ".oal"))
         {
             foreach (string line in lines)
             {
