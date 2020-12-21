@@ -273,6 +273,7 @@ public class Animation : Singleton<Animation>
             }
             else
             {
+                
                 switch (step)
                 {
                     case 0: ScriptParser.Instance.HighlightClass(my_index, script); HighlightClass(Call.CallerClassName, true); break;
@@ -293,7 +294,9 @@ public class Animation : Singleton<Animation>
                         break;
 
                 }
+                
                 step++;
+                
                 if (standardPlayMode)
                 {
                     yield return new WaitForSeconds(AnimationData.Instance.AnimSpeed * timeModifier);
@@ -335,6 +338,7 @@ public class Animation : Singleton<Animation>
                     prevStep = false;
                 }
             }
+            my_index = 0;
         }
     }
     
