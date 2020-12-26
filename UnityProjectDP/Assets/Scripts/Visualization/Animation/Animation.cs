@@ -30,7 +30,6 @@ public class Animation : Singleton<Animation>
     private bool prevStep = false;
     private List<GameObject> Fillers;
     ///
-    private ScriptParser sp;
     public TMP_InputField script;
     private string originalText;
     private int my_index;
@@ -208,6 +207,13 @@ public class Animation : Singleton<Animation>
     //Method used to Highlight/Unhighlight single method by name, depending on bool value of argument 
     public void HighlightMethod(string className, string methodName, bool isToBeHighlighted)
     {
+        if (isToBeHighlighted)
+        {
+            MenuManager.Instance.fillDebugWindow(className + "_" + methodName + "()");
+        }
+        
+
+
         GameObject node = classDiagram.FindNode(className);
         TextHighlighter th = null;
         if (node != null)
@@ -288,6 +294,7 @@ public class Animation : Singleton<Animation>
                         HighlightClass(Call.CalledClassName, false);
                         HighlightMethod(Call.CalledClassName, Call.CalledMethodName, false);
                         HighlightEdge(Call.RelationshipName, false);
+                        MenuManager.Instance.fillDebugWindow("NULL");
                         timeModifier = 1f;
                         my_index++;
                         script.text = originalText;

@@ -1,8 +1,8 @@
-amskcmasc
-as
-ca
-sca
-sc
-
-
-
+x = 1;
+while (TRUE)
+x = x + 1;
+call from HotelOfferVisitor::visitGoldCreditCard() to OfferVisitor::visitGoldCreditCard() across R14;
+if x > 2
+break;
+end if;
+end while;

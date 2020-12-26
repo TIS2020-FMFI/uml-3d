@@ -1,0 +1,2 @@
+HotelOfferVisitor::visitGoldCreditCard();
+Client::PrepareVisitors();

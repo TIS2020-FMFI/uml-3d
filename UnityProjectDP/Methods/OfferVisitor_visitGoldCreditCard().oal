@@ -1,0 +1,1 @@
+call from OfferVisitor::visitGoldCreditCard() to GoldCreditCard::getGoldCardValue() across R11;
