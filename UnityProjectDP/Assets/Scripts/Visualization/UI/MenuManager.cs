@@ -340,11 +340,26 @@ public class MenuManager : Singleton<MenuManager>
     {
         methodCode.GetComponent<CodeHighlighter>().RemoveColors();
         MethodBody newMethod = new MethodBody("", methodCode.text);
+        string[] tempText = methodBodyName.Split('_');
+        string ClassName = tempText[0];
+        Class selectedClass = ClassDiagram.Instance.FindClassByName(ClassName);
+        List<string> atrributes = new List<string>() ;
+        if (selectedClass.Attributes != null)
+        {
+            foreach (Attribute a in selectedClass.Attributes)
+            {
+                atrributes.Add(a.Type + " " + a.Name + '\n');
+            }
+        }
         Animation.Instance.UnhighlightAll();
         string[] lines = methodCode.text.Split('\n');
         using (System.IO.StreamWriter file =
             new System.IO.StreamWriter(@"Methods/" + methodBodyName + ".oal"))
         {
+            foreach (string line in atrributes)
+            {
+                file.WriteLine(line);
+            }
             foreach (string line in lines)
             {
                 file.WriteLine(line);
