@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1252"?>
 <xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:thecustomprofile="http://www.sparxsystems.com/profiles/thecustomprofile/1.0">
-	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5" exporterID="1557"/>
 	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
 		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" name="visitor" visibility="public">
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_DDC94AEF_5E76_4bbe_89A5_D63CD722FF83" name="BronzeCreditCard" visibility="public">
@@ -131,6 +131,11 @@
 				</ownedEnd>
 			</packagedElement>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_550A5F95_6617_47e8_A10E_333B9C6DFCB1" name="HotelOfferVisitor" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_C28DA613_86B2_45c1_8F26_9D5551BB8488" name="TestAtribute" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000001_86B2_45c1_8F26_9D5551BB8488" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000002_86B2_45c1_8F26_9D5551BB8488" value="1"/>
+					<type xmi:idref="EAJava_int"/>
+				</ownedAttribute>
 				<ownedOperation xmi:id="EAID_100EE81E_987A_4e90_AA7B_EF78E0C8105F" name="visitBronzeCreditCard" visibility="public" concurrency="sequential">
 					<ownedParameter xmi:id="EAID_DCAB680A_7749_4851_A188_DBE43A736503" name="BronzeCreditCard" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true" type="EAJava_BronzeCreditCard"/>
 					<ownedParameter xmi:id="EAID_RT000000_987A_4e90_AA7B_EF78E0C8105F" name="return" direction="return" type="EAJava_void"/>
@@ -224,7 +229,7 @@
 	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
 		<elements>
 			<element xmi:idref="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" xmi:type="uml:Package" name="visitor" scope="public">
-				<model package2="EAID_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" package="EAPK_8C2412FD_17D5_4db6_A165_921ADE1511D4" tpos="1" ea_localid="3" ea_eleType="package"/>
+				<model package2="EAID_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" package="EAPK_D16784DE_DC75_4a41_890F_40E7600F743D" tpos="1" ea_localid="2" ea_eleType="package"/>
 				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
 				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:06:33" modified="2020-04-21 14:55:45" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
@@ -234,13 +239,13 @@
 				<extendedProperties tagged="0" package_name="Model"/>
 				<packageproperties version="1.0" tpos="1"/>
 				<paths/>
-				<times created="2020-04-21 14:06:33" modified="2020-04-21 14:55:45"/>
-				<flags iscontrolled="FALSE" isprotected="FALSE" usedtd="FALSE" logxml="FALSE" packageFlags="isModel=1;VICON=3;"/>
+				<times created="2020-04-21 14:06:33" modified="2020-12-27 22:41:48" lastloaddate="2020-12-27 22:41:47" lastsavedate="2020-12-27 22:41:47"/>
+				<flags iscontrolled="FALSE" isprotected="FALSE" batchsave="0" batchload="0" usedtd="FALSE" logxml="FALSE" packageFlags="isModel=1;VICON=3;"/>
 			</element>
 			<element xmi:idref="EAID_DDC94AEF_5E76_4bbe_89A5_D63CD722FF83" xmi:type="uml:Class" name="BronzeCreditCard" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="32" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="2" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:07:27" modified="2020-04-21 14:07:35" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:07:27" modified="2020-12-27 22:41:47" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -250,8 +255,8 @@
 					<operation xmi:idref="EAID_B9718398_A63B_4539_B028_F7E673DD7EEE" name="accept" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{B9718398-A63B-4539-B028-F7E673DD7EEE}" ea_localid="20"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{B9718398-A63B-4539-B028-F7E673DD7EEE}" ea_localid="1"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -284,8 +289,8 @@
 					<operation xmi:idref="EAID_C71949FD_008F_4300_9296_048BF39E42A9" name="getBronzeCardValue" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{C71949FD-008F-4300-9296-048BF39E42A9}" ea_localid="32"/>
-						<type type="int" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{C71949FD-008F-4300-9296-048BF39E42A9}" ea_localid="2"/>
+						<type type="int" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -313,9 +318,9 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_FB9AF69B_EB4E_4345_8346_8F0B96DE0524" xmi:type="uml:Class" name="Client" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="30" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="3" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:06:58" modified="2020-04-21 14:07:01" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:06:58" modified="2020-12-27 22:41:47" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -325,8 +330,8 @@
 					<operation xmi:idref="EAID_D0EB2E03_EF6E_48b6_8F43_BA59D39F1465" name="CommenceVisiting" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{D0EB2E03-EF6E-48b6-8F43-BA59D39F1465}" ea_localid="36"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{D0EB2E03-EF6E-48b6-8F43-BA59D39F1465}" ea_localid="3"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -348,8 +353,8 @@
 					<operation xmi:idref="EAID_51413B45_19E6_478d_8E60_8023224B9035" name="PrepareVisitors" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{51413B45-19E6-478d-8E60-8023224B9035}" ea_localid="35"/>
-						<type type="Visitor[]" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{51413B45-19E6-478d-8E60-8023224B9035}" ea_localid="4"/>
+						<type type="Visitor[]" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -375,9 +380,9 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_3D2D6AFD_F95E_46b6_B901_E10CDCD67F42" xmi:type="uml:Class" name="GasOfferVisitor" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="34" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="4" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:12:58" modified="2020-04-21 14:13:10" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:12:58" modified="2020-12-27 22:41:47" complexity="1" status="Proposed"/>
 				<code product_name="Java" gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -387,8 +392,8 @@
 					<operation xmi:idref="EAID_9DD59D8E_313B_46ff_BA32_0940B263B5D3" name="visitBronzeCreditCard" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{9DD59D8E-313B-46ff-BA32-0940B263B5D3}" ea_localid="26"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{9DD59D8E-313B-46ff-BA32-0940B263B5D3}" ea_localid="5"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -421,8 +426,8 @@
 					<operation xmi:idref="EAID_7CC5A5B6_ABCD_4075_8BC4_250413613D73" name="visitGoldCreditCard" scope="Public">
 						<properties position="2"/>
 						<stereotype/>
-						<model ea_guid="{7CC5A5B6-ABCD-4075-8BC4-250413613D73}" ea_localid="27"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{7CC5A5B6-ABCD-4075-8BC4-250413613D73}" ea_localid="6"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -455,8 +460,8 @@
 					<operation xmi:idref="EAID_E88C99C5_8CDB_429c_AC4C_001B2B443C3F" name="visitSilverCreditCard" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{E88C99C5-8CDB-429c-AC4C-001B2B443C3F}" ea_localid="28"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{E88C99C5-8CDB-429c-AC4C-001B2B443C3F}" ea_localid="7"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -495,9 +500,9 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_7B7FD7BD_0414_4a18_A5CC_DA8FA6B4716B" xmi:type="uml:Class" name="GoldCreditCard" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="28" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="5" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:06:39" modified="2020-04-21 14:06:47" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:06:39" modified="2020-12-27 22:41:47" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -507,8 +512,8 @@
 					<operation xmi:idref="EAID_34BBD667_F92F_45a7_9CF2_78243B4B76E2" name="accept" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{34BBD667-F92F-45a7-9CF2-78243B4B76E2}" ea_localid="22"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{34BBD667-F92F-45a7-9CF2-78243B4B76E2}" ea_localid="8"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -541,8 +546,8 @@
 					<operation xmi:idref="EAID_A4EED285_14BC_4fc1_A0FB_0A35B85E9A24" name="getGoldCardValue" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{A4EED285-14BC-4fc1-A0FB-0A35B85E9A24}" ea_localid="34"/>
-						<type type="int" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{A4EED285-14BC-4fc1-A0FB-0A35B85E9A24}" ea_localid="9"/>
+						<type type="int" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -570,20 +575,37 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_550A5F95_6617_47e8_A10E_333B9C6DFCB1" xmi:type="uml:Class" name="HotelOfferVisitor" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="36" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="6" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:15:56" modified="2020-04-21 14:16:03" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:15:56" modified="2020-12-27 22:41:48" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="visitor"/>
+				<attributes>
+					<attribute xmi:idref="EAID_C28DA613_86B2_45c1_8F26_9D5551BB8488" name="TestAtribute" scope="Private">
+						<initial/>
+						<documentation/>
+						<model ea_localid="1" ea_guid="{C28DA613-86B2-45c1-8F26-9D5551BB8488}"/>
+						<properties type="int" collection="false" static="0" duplicates="0" changeability="changeable"/>
+						<coords ordered="0"/>
+						<containment containment="Not Specified" position="0"/>
+						<stereotype/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="volatile=0;"/>
+						<tags/>
+						<xrefs/>
+					</attribute>
+				</attributes>
 				<operations>
 					<operation xmi:idref="EAID_100EE81E_987A_4e90_AA7B_EF78E0C8105F" name="visitBronzeCreditCard" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{100EE81E-987A-4e90-AA7B-EF78E0C8105F}" ea_localid="29"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{100EE81E-987A-4e90-AA7B-EF78E0C8105F}" ea_localid="10"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -616,8 +638,8 @@
 					<operation xmi:idref="EAID_CA5E5EE5_593D_4f02_A8DE_B0ECEE92C118" name="visitGoldCreditCard" scope="Public">
 						<properties position="2"/>
 						<stereotype/>
-						<model ea_guid="{CA5E5EE5-593D-4f02-A8DE-B0ECEE92C118}" ea_localid="30"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{CA5E5EE5-593D-4f02-A8DE-B0ECEE92C118}" ea_localid="11"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -650,8 +672,8 @@
 					<operation xmi:idref="EAID_C55AF25A_AA0F_45d8_9D24_84BD051B10A4" name="visitSilverCreditCard" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{C55AF25A-AA0F-45d8-9D24-84BD051B10A4}" ea_localid="31"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{C55AF25A-AA0F-45d8-9D24-84BD051B10A4}" ea_localid="12"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -690,9 +712,9 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_FD70FED8_15CE_4985_A94B_EAA2160D35D0" xmi:type="uml:Class" name="SilverCreditCard" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="31" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="7" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:07:16" modified="2020-04-21 14:07:21" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:07:16" modified="2020-12-27 22:41:48" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -702,8 +724,8 @@
 					<operation xmi:idref="EAID_518710DE_1535_4347_AD86_D057C4DBCA8D" name="accept" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{518710DE-1535-4347-AD86-D057C4DBCA8D}" ea_localid="21"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{518710DE-1535-4347-AD86-D057C4DBCA8D}" ea_localid="13"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -736,8 +758,8 @@
 					<operation xmi:idref="EAID_348A90F4_9A9F_440c_B050_27C27643CA0C" name="getSilverCardValue" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{348A90F4-9A9F-440c-B050-27C27643CA0C}" ea_localid="33"/>
-						<type type="int" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{348A90F4-9A9F-440c-B050-27C27643CA0C}" ea_localid="14"/>
+						<type type="int" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -765,9 +787,9 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_9408594B_A23D_4a3e_BF8D_80296682A5DB" xmi:type="uml:Interface" name="CreditCard" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="33" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="8" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Interface" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="true"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:08:16" modified="2020-04-21 14:08:24" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:08:16" modified="2020-12-27 22:41:48" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -777,8 +799,8 @@
 					<operation xmi:idref="EAID_D4D23067_CE04_4cd9_8269_F30998CC5E50" name="accept" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{D4D23067-CE04-4cd9-8269-F30998CC5E50}" ea_localid="19"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{D4D23067-CE04-4cd9-8269-F30998CC5E50}" ea_localid="15"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -814,9 +836,9 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C" xmi:type="uml:Interface" name="OfferVisitor" scope="public">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="35" ea_eleType="element"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" tpos="0" ea_localid="9" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Interface" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="true"/>
-				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:13:19" modified="2020-04-21 14:13:31" complexity="1" status="Proposed"/>
+				<project author="Lukawh59" version="1.0" phase="1.0" created="2020-04-21 14:13:19" modified="2020-12-27 22:41:48" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
@@ -826,8 +848,8 @@
 					<operation xmi:idref="EAID_A7493832_C28B_4427_A4C3_CA0D6986317D" name="visitBronzeCreditCard" scope="Public">
 						<properties position="0"/>
 						<stereotype/>
-						<model ea_guid="{A7493832-C28B-4427-A4C3-CA0D6986317D}" ea_localid="23"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{A7493832-C28B-4427-A4C3-CA0D6986317D}" ea_localid="16"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -857,8 +879,8 @@
 					<operation xmi:idref="EAID_905DCE39_648A_47d5_A0B2_E868E126A6B4" name="visitGoldCreditCard" scope="Public">
 						<properties position="2"/>
 						<stereotype/>
-						<model ea_guid="{905DCE39-648A-47d5-A0B2-E868E126A6B4}" ea_localid="25"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{905DCE39-648A-47d5-A0B2-E868E126A6B4}" ea_localid="17"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -888,8 +910,8 @@
 					<operation xmi:idref="EAID_E13E58E7_3C12_4918_AE49_C3F242D249E3" name="visitSilverCreditCard" scope="Public">
 						<properties position="1"/>
 						<stereotype/>
-						<model ea_guid="{E13E58E7-3C12-4918-AE49-C3F242D249E3}" ea_localid="24"/>
-						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<model ea_guid="{E13E58E7-3C12-4918-AE49-C3F242D249E3}" ea_localid="18"/>
+						<type type="void" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" returnarray="0" pure="0" isQuery="false"/>
 						<behaviour/>
 						<code/>
 						<style/>
@@ -930,7 +952,7 @@
 		<connectors>
 			<connector xmi:idref="EAID_81252E77_001B_4d2f_A21F_C4CA29D81FE4">
 				<source xmi:idref="EAID_DDC94AEF_5E76_4bbe_89A5_D63CD722FF83">
-					<model ea_localid="32" type="Class" name="BronzeCreditCard"/>
+					<model ea_localid="2" type="Class" name="BronzeCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -941,7 +963,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C">
-					<model ea_localid="35" type="Interface" name="OfferVisitor"/>
+					<model ea_localid="9" type="Interface" name="OfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -951,7 +973,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="44"/>
+				<model ea_localid="16"/>
 				<properties ea_type="Association" direction="Unspecified"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -965,7 +987,7 @@
 			</connector>
 			<connector xmi:idref="EAID_B85E2C16_8F48_4984_9B4E_8482AE2DADEA">
 				<source xmi:idref="EAID_DDC94AEF_5E76_4bbe_89A5_D63CD722FF83">
-					<model ea_localid="32" type="Class" name="BronzeCreditCard"/>
+					<model ea_localid="2" type="Class" name="BronzeCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -976,7 +998,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_9408594B_A23D_4a3e_BF8D_80296682A5DB">
-					<model ea_localid="33" type="Interface" name="CreditCard"/>
+					<model ea_localid="8" type="Interface" name="CreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -986,7 +1008,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="37"/>
+				<model ea_localid="15"/>
 				<properties ea_type="Realisation" direction="Source -&gt; Destination"/>
 				<parameterSubstitutions/>
 				<documentation/>
@@ -999,7 +1021,7 @@
 			</connector>
 			<connector xmi:idref="EAID_76AAC14D_B909_4c07_9560_73FF5E7176A9">
 				<source xmi:idref="EAID_3D2D6AFD_F95E_46b6_B901_E10CDCD67F42">
-					<model ea_localid="34" type="Class" name="GasOfferVisitor"/>
+					<model ea_localid="4" type="Class" name="GasOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1010,7 +1032,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_DDC94AEF_5E76_4bbe_89A5_D63CD722FF83">
-					<model ea_localid="32" type="Class" name="BronzeCreditCard"/>
+					<model ea_localid="2" type="Class" name="BronzeCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1020,7 +1042,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="47"/>
+				<model ea_localid="14"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1034,7 +1056,7 @@
 			</connector>
 			<connector xmi:idref="EAID_E3C42018_FB92_4630_99B5_4AF8F37B2EDA">
 				<source xmi:idref="EAID_550A5F95_6617_47e8_A10E_333B9C6DFCB1">
-					<model ea_localid="36" type="Class" name="HotelOfferVisitor"/>
+					<model ea_localid="6" type="Class" name="HotelOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1045,7 +1067,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_DDC94AEF_5E76_4bbe_89A5_D63CD722FF83">
-					<model ea_localid="32" type="Class" name="BronzeCreditCard"/>
+					<model ea_localid="2" type="Class" name="BronzeCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1055,7 +1077,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="50"/>
+				<model ea_localid="13"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1069,7 +1091,7 @@
 			</connector>
 			<connector xmi:idref="EAID_2474E043_0896_4f32_B663_902BD7B93BB1">
 				<source xmi:idref="EAID_FB9AF69B_EB4E_4345_8346_8F0B96DE0524">
-					<model ea_localid="30" type="Class" name="Client"/>
+					<model ea_localid="3" type="Class" name="Client"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1080,7 +1102,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C">
-					<model ea_localid="35" type="Interface" name="OfferVisitor"/>
+					<model ea_localid="9" type="Interface" name="OfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1090,7 +1112,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="52"/>
+				<model ea_localid="12"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1104,7 +1126,7 @@
 			</connector>
 			<connector xmi:idref="EAID_DEFC084A_4965_404d_BB66_68AC5EBFCDAE">
 				<source xmi:idref="EAID_FB9AF69B_EB4E_4345_8346_8F0B96DE0524">
-					<model ea_localid="30" type="Class" name="Client"/>
+					<model ea_localid="3" type="Class" name="Client"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1115,7 +1137,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_9408594B_A23D_4a3e_BF8D_80296682A5DB">
-					<model ea_localid="33" type="Interface" name="CreditCard"/>
+					<model ea_localid="8" type="Interface" name="CreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1125,7 +1147,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="51"/>
+				<model ea_localid="11"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1139,7 +1161,7 @@
 			</connector>
 			<connector xmi:idref="EAID_E40C4AE1_8E57_4dae_B664_CFF187896737">
 				<source xmi:idref="EAID_3D2D6AFD_F95E_46b6_B901_E10CDCD67F42">
-					<model ea_localid="34" type="Class" name="GasOfferVisitor"/>
+					<model ea_localid="4" type="Class" name="GasOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1150,7 +1172,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7B7FD7BD_0414_4a18_A5CC_DA8FA6B4716B">
-					<model ea_localid="28" type="Class" name="GoldCreditCard"/>
+					<model ea_localid="5" type="Class" name="GoldCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1160,7 +1182,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="45"/>
+				<model ea_localid="10"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1174,7 +1196,7 @@
 			</connector>
 			<connector xmi:idref="EAID_E82BEDAF_879E_4e11_A2FA_CE474F8429B9">
 				<source xmi:idref="EAID_3D2D6AFD_F95E_46b6_B901_E10CDCD67F42">
-					<model ea_localid="34" type="Class" name="GasOfferVisitor"/>
+					<model ea_localid="4" type="Class" name="GasOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1185,7 +1207,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C">
-					<model ea_localid="35" type="Interface" name="OfferVisitor"/>
+					<model ea_localid="9" type="Interface" name="OfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1195,7 +1217,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="40"/>
+				<model ea_localid="9"/>
 				<properties ea_type="Realisation" direction="Source -&gt; Destination"/>
 				<parameterSubstitutions/>
 				<documentation/>
@@ -1208,7 +1230,7 @@
 			</connector>
 			<connector xmi:idref="EAID_EDFA7DBE_1636_4766_B5B3_53CD7DA8FCC5">
 				<source xmi:idref="EAID_3D2D6AFD_F95E_46b6_B901_E10CDCD67F42">
-					<model ea_localid="34" type="Class" name="GasOfferVisitor"/>
+					<model ea_localid="4" type="Class" name="GasOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1219,7 +1241,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_FD70FED8_15CE_4985_A94B_EAA2160D35D0">
-					<model ea_localid="31" type="Class" name="SilverCreditCard"/>
+					<model ea_localid="7" type="Class" name="SilverCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1229,7 +1251,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="46"/>
+				<model ea_localid="8"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1243,7 +1265,7 @@
 			</connector>
 			<connector xmi:idref="EAID_3CF4165A_7329_4230_902A_01DC77B1D764">
 				<source xmi:idref="EAID_7B7FD7BD_0414_4a18_A5CC_DA8FA6B4716B">
-					<model ea_localid="28" type="Class" name="GoldCreditCard"/>
+					<model ea_localid="5" type="Class" name="GoldCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1254,7 +1276,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_9408594B_A23D_4a3e_BF8D_80296682A5DB">
-					<model ea_localid="33" type="Interface" name="CreditCard"/>
+					<model ea_localid="8" type="Interface" name="CreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1264,7 +1286,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="39"/>
+				<model ea_localid="7"/>
 				<properties ea_type="Realisation" direction="Source -&gt; Destination"/>
 				<parameterSubstitutions/>
 				<documentation/>
@@ -1277,7 +1299,7 @@
 			</connector>
 			<connector xmi:idref="EAID_92E29C9A_3490_4978_82F0_22B21FDDFE1C">
 				<source xmi:idref="EAID_7B7FD7BD_0414_4a18_A5CC_DA8FA6B4716B">
-					<model ea_localid="28" type="Class" name="GoldCreditCard"/>
+					<model ea_localid="5" type="Class" name="GoldCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1288,7 +1310,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C">
-					<model ea_localid="35" type="Interface" name="OfferVisitor"/>
+					<model ea_localid="9" type="Interface" name="OfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1298,7 +1320,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="42"/>
+				<model ea_localid="6"/>
 				<properties ea_type="Association" direction="Unspecified"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1312,7 +1334,7 @@
 			</connector>
 			<connector xmi:idref="EAID_645F93AA_1ABC_4a41_B747_B76347EC47C3">
 				<source xmi:idref="EAID_550A5F95_6617_47e8_A10E_333B9C6DFCB1">
-					<model ea_localid="36" type="Class" name="HotelOfferVisitor"/>
+					<model ea_localid="6" type="Class" name="HotelOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1323,7 +1345,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7B7FD7BD_0414_4a18_A5CC_DA8FA6B4716B">
-					<model ea_localid="28" type="Class" name="GoldCreditCard"/>
+					<model ea_localid="5" type="Class" name="GoldCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1333,7 +1355,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="48"/>
+				<model ea_localid="5"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1347,7 +1369,7 @@
 			</connector>
 			<connector xmi:idref="EAID_263E34E7_C795_487c_9775_C60BCE836B57">
 				<source xmi:idref="EAID_550A5F95_6617_47e8_A10E_333B9C6DFCB1">
-					<model ea_localid="36" type="Class" name="HotelOfferVisitor"/>
+					<model ea_localid="6" type="Class" name="HotelOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1358,7 +1380,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_FD70FED8_15CE_4985_A94B_EAA2160D35D0">
-					<model ea_localid="31" type="Class" name="SilverCreditCard"/>
+					<model ea_localid="7" type="Class" name="SilverCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1368,7 +1390,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="49"/>
+				<model ea_localid="4"/>
 				<properties ea_type="Association" direction="Source -&gt; Destination"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1382,7 +1404,7 @@
 			</connector>
 			<connector xmi:idref="EAID_E4276129_09D9_4cfd_9BB1_8103ED1AEDD9">
 				<source xmi:idref="EAID_550A5F95_6617_47e8_A10E_333B9C6DFCB1">
-					<model ea_localid="36" type="Class" name="HotelOfferVisitor"/>
+					<model ea_localid="6" type="Class" name="HotelOfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1393,7 +1415,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C">
-					<model ea_localid="35" type="Interface" name="OfferVisitor"/>
+					<model ea_localid="9" type="Interface" name="OfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1403,7 +1425,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="41"/>
+				<model ea_localid="3"/>
 				<properties ea_type="Realisation" direction="Source -&gt; Destination"/>
 				<parameterSubstitutions/>
 				<documentation/>
@@ -1416,7 +1438,7 @@
 			</connector>
 			<connector xmi:idref="EAID_80F62407_8E49_4321_AA3E_F77BD1E0D213">
 				<source xmi:idref="EAID_FD70FED8_15CE_4985_A94B_EAA2160D35D0">
-					<model ea_localid="31" type="Class" name="SilverCreditCard"/>
+					<model ea_localid="7" type="Class" name="SilverCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1427,7 +1449,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_9408594B_A23D_4a3e_BF8D_80296682A5DB">
-					<model ea_localid="33" type="Interface" name="CreditCard"/>
+					<model ea_localid="8" type="Interface" name="CreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1437,7 +1459,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="38"/>
+				<model ea_localid="2"/>
 				<properties ea_type="Realisation" direction="Source -&gt; Destination"/>
 				<parameterSubstitutions/>
 				<documentation/>
@@ -1450,7 +1472,7 @@
 			</connector>
 			<connector xmi:idref="EAID_8E94A11B_8E0B_4daa_A700_FC9458AE0338">
 				<source xmi:idref="EAID_FD70FED8_15CE_4985_A94B_EAA2160D35D0">
-					<model ea_localid="31" type="Class" name="SilverCreditCard"/>
+					<model ea_localid="7" type="Class" name="SilverCreditCard"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1461,7 +1483,7 @@
 					<tags/>
 				</source>
 				<target xmi:idref="EAID_7C22EDCC_BBB6_45be_A28C_88DCF623C39C">
-					<model ea_localid="35" type="Interface" name="OfferVisitor"/>
+					<model ea_localid="9" type="Interface" name="OfferVisitor"/>
 					<role visibility="Public" targetScope="instance"/>
 					<type aggregation="none" containment="Unspecified"/>
 					<constraints/>
@@ -1471,7 +1493,7 @@
 					<xrefs/>
 					<tags/>
 				</target>
-				<model ea_localid="43"/>
+				<model ea_localid="1"/>
 				<properties ea_type="Association" direction="Unspecified"/>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<parameterSubstitutions/>
@@ -1535,12 +1557,12 @@
 		</profiles>
 		<diagrams>
 			<diagram xmi:id="EAID_DD1D0A14_31C1_400a_97B4_00B32E39523C">
-				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" localID="4" owner="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5"/>
+				<model package="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5" localID="1" owner="EAPK_AC0F50CD_D6CE_454a_8DD3_B4F955A0ADE5"/>
 				<properties name="visitor" type="Logical"/>
 				<project author="Lukawh59" version="1.0" created="2020-04-21 14:06:35" modified="2020-04-21 18:15:51"/>
-				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=780;DocSize.cy=1134;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=2F218905;"/>
-				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=0;ufh=0;hh=0;cls=0;bw=0;hli=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=1;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=780;DocSize.cy=1134;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="SaveTag=590482E0;ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=0;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
 				<extendedProperties/>
 				<elements>
@@ -1552,22 +1574,22 @@
 					<element geometry="Left=403;Top=206;Right=532;Bottom=276;" subject="EAID_FD70FED8_15CE_4985_A94B_EAA2160D35D0" seqno="6" style="DUID=7D4E7AD5;"/>
 					<element geometry="Left=37;Top=37;Right=166;Bottom=107;" subject="EAID_FB9AF69B_EB4E_4345_8346_8F0B96DE0524" seqno="7" style="DUID=B6247F55;"/>
 					<element geometry="Left=570;Top=144;Right=695;Bottom=214;" subject="EAID_7B7FD7BD_0414_4a18_A5CC_DA8FA6B4716B" seqno="8" style="DUID=C142DB7A;"/>
-					<element geometry="SX=-82;SY=-2;EX=40;EY=-6;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=841:-320$671:-320$;" subject="EAID_E40C4AE1_8E57_4dae_B664_CFF187896737" style="Mode=3;EOID=C142DB7A;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=-1;EY=-38;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=246:-240$;" subject="EAID_80F62407_8E49_4321_AA3E_F77BD1E0D213" style="Mode=3;EOID=E3B9021C;SOID=7D4E7AD5;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=-61;SY=-14;EX=16;EY=-2;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=264:-193$;" subject="EAID_3CF4165A_7329_4230_902A_01DC77B1D764" style="Mode=3;EOID=E3B9021C;SOID=C142DB7A;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_E82BEDAF_879E_4e11_A2FA_CE474F8429B9" style="Mode=3;EOID=C853FDC1;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DEFC084A_4965_404d_BB66_68AC5EBFCDAE" style="Mode=3;EOID=E3B9021C;SOID=B6247F55;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_E4276129_09D9_4cfd_9BB1_8103ED1AEDD9" style="Mode=3;EOID=C853FDC1;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=-101;EY=-16;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=632:-115$;" subject="EAID_92E29C9A_3490_4978_82F0_22B21FDDFE1C" style="Mode=3;EOID=C853FDC1;SOID=C142DB7A;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=-61;SY=7;EX=-30;EY=5;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=217:-312$;" subject="EAID_B85E2C16_8F48_4984_9B4E_8482AE2DADEA" style="Mode=3;EOID=E3B9021C;SOID=52BE8851;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=9;SY=34;EX=-101;EY=12;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=362:-87$;" subject="EAID_81252E77_001B_4d2f_A21F_C4CA29D81FE4" style="Mode=3;EOID=C853FDC1;SOID=52BE8851;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_E82BEDAF_879E_4e11_A2FA_CE474F8429B9" style="Mode=3;EOID=C853FDC1;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=6;SY=4;EX=-101;EY=31;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2474E043_0896_4f32_B663_902BD7B93BB1" style="Mode=3;EOID=C853FDC1;SOID=B6247F55;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=-47;SY=-34;EX=50;EY=-4;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=876:-348$515:-348$;" subject="EAID_EDFA7DBE_1636_4766_B5B3_53CD7DA8FCC5" style="Mode=3;EOID=7D4E7AD5;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=-31;SY=-34;EX=36;EY=-34;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=893:-390$389:-390$;" subject="EAID_76AAC14D_B909_4c07_9560_73FF5E7176A9" style="Mode=3;EOID=52BE8851;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=-78;SY=13;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=1093:-329$631:-329$;" subject="EAID_645F93AA_1ABC_4a41_B747_B76347EC47C3" style="Mode=3;EOID=C142DB7A;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=-28;SY=-34;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=1143:-376$465:-376$;" subject="EAID_263E34E7_C795_487c_9775_C60BCE836B57" style="Mode=3;EOID=7D4E7AD5;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=7;EY=-34;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=1171:-432$360:-432$;" subject="EAID_E3C42018_FB92_4630_99B5_4AF8F37B2EDA" style="Mode=3;EOID=52BE8851;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DEFC084A_4965_404d_BB66_68AC5EBFCDAE" style="Mode=3;EOID=E3B9021C;SOID=B6247F55;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=9;SY=34;EX=-101;EY=12;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=362:-87$;" subject="EAID_81252E77_001B_4d2f_A21F_C4CA29D81FE4" style="Mode=3;EOID=C853FDC1;SOID=52BE8851;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=6;SY=32;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=470:-98$;" subject="EAID_8E94A11B_8E0B_4daa_A700_FC9458AE0338" style="Mode=3;EOID=C853FDC1;SOID=7D4E7AD5;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-61;SY=-14;EX=16;EY=-2;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=264:-193$;" subject="EAID_3CF4165A_7329_4230_902A_01DC77B1D764" style="Mode=3;EOID=E3B9021C;SOID=C142DB7A;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-82;SY=-2;EX=40;EY=-6;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=841:-320$671:-320$;" subject="EAID_E40C4AE1_8E57_4dae_B664_CFF187896737" style="Mode=3;EOID=C142DB7A;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-61;SY=7;EX=-30;EY=5;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=217:-312$;" subject="EAID_B85E2C16_8F48_4984_9B4E_8482AE2DADEA" style="Mode=3;EOID=E3B9021C;SOID=52BE8851;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=7;EY=-34;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=1171:-432$360:-432$;" subject="EAID_E3C42018_FB92_4630_99B5_4AF8F37B2EDA" style="Mode=3;EOID=52BE8851;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-31;SY=-34;EX=36;EY=-34;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=893:-390$389:-390$;" subject="EAID_76AAC14D_B909_4c07_9560_73FF5E7176A9" style="Mode=3;EOID=52BE8851;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-28;SY=-34;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=1143:-376$465:-376$;" subject="EAID_263E34E7_C795_487c_9775_C60BCE836B57" style="Mode=3;EOID=7D4E7AD5;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-47;SY=-34;EX=50;EY=-4;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=876:-348$515:-348$;" subject="EAID_EDFA7DBE_1636_4766_B5B3_53CD7DA8FCC5" style="Mode=3;EOID=7D4E7AD5;SOID=2F75015F;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-78;SY=13;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=1093:-329$631:-329$;" subject="EAID_645F93AA_1ABC_4a41_B747_B76347EC47C3" style="Mode=3;EOID=C142DB7A;SOID=B8B34CB0;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=-1;EY=-38;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=246:-240$;" subject="EAID_80F62407_8E49_4321_AA3E_F77BD1E0D213" style="Mode=3;EOID=E3B9021C;SOID=7D4E7AD5;Color=-1;LWidth=0;Hidden=0;"/>
 				</elements>
 			</diagram>
 		</diagrams>
