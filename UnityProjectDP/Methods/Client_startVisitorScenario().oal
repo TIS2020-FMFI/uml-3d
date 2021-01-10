@@ -1,2 +1,2 @@
-HotelOfferVisitor::visitGoldCreditCard();
-Client::PrepareVisitors();
+ProductionUnit::Enqueue();
+Building::Die();

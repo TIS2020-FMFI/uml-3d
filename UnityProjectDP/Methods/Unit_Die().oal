@@ -1,0 +1,15 @@
+x = 1;
+while (TRUE)
+x = x + 1;
+call from Unit::Die() to PlayerObject::Die() across R3;
+if x > 3
+break;
+end if;
+end while;
+
+
+
+
+
+
+

@@ -35,6 +35,7 @@ public class MenuManager : Singleton<MenuManager>
     private bool isAnimating = true;
     private string methodBodyName;
     private string methodBodyClass;
+    private string atrributes = "";
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -340,26 +341,12 @@ public class MenuManager : Singleton<MenuManager>
     {
         methodCode.GetComponent<CodeHighlighter>().RemoveColors();
         MethodBody newMethod = new MethodBody("", methodCode.text);
-        string[] tempText = methodBodyName.Split('_');
-        string ClassName = tempText[0];
-        Class selectedClass = ClassDiagram.Instance.FindClassByName(ClassName);
-        List<string> atrributes = new List<string>() ;
-        if (selectedClass.Attributes != null)
-        {
-            foreach (Attribute a in selectedClass.Attributes)
-            {
-                atrributes.Add(a.Type + " " + a.Name + '\n');
-            }
-        }
+        
         Animation.Instance.UnhighlightAll();
         string[] lines = methodCode.text.Split('\n');
         using (System.IO.StreamWriter file =
             new System.IO.StreamWriter(@"Methods/" + methodBodyName + ".oal"))
         {
-            foreach (string line in atrributes)
-            {
-                file.WriteLine(line);
-            }
             foreach (string line in lines)
             {
                 file.WriteLine(line);
@@ -500,14 +487,29 @@ public class MenuManager : Singleton<MenuManager>
 
     public void fillDebugWindow(String name)
     {
+
         if (name == "NULL")
         {
             debugName.text = "Debug Window";
             debugField.text = "";
             return;
         }
-
-        debugName.text = name;
+        string[] nameFormat = name.Split('_');
+        //string[] tempText = methodBodyName.Split('_');
+        string ClassName = nameFormat[0];
+        Class selectedClass = ClassDiagram.Instance.FindClassByName(ClassName);
+        atrributes = "Aributes:" + '\n';
+        if (selectedClass.Attributes != null)
+        {
+            foreach (Attribute a in selectedClass.Attributes)
+            {
+                atrributes += a.Name;
+                atrributes += " ";
+                atrributes += a.Type;
+                atrributes += '\n';
+            }
+        }
+        debugName.text = "Class: " + nameFormat[0] + '\n' + "Method: " + nameFormat[1] + '\n' + atrributes;
         try
         {
             debugField.text = File.ReadAllText(@"Methods/" + name + ".oal");
