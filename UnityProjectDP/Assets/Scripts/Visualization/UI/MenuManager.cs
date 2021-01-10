@@ -35,7 +35,6 @@ public class MenuManager : Singleton<MenuManager>
     private bool isAnimating = true;
     private string methodBodyName;
     private string methodBodyClass;
-    private string atrributes = "";
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -495,16 +494,15 @@ public class MenuManager : Singleton<MenuManager>
             return;
         }
         string[] nameFormat = name.Split('_');
-        //string[] tempText = methodBodyName.Split('_');
         string ClassName = nameFormat[0];
         Class selectedClass = ClassDiagram.Instance.FindClassByName(ClassName);
-        atrributes = "Aributes:" + '\n';
+        string atrributes = "\nAributes:\n";
         if (selectedClass.Attributes != null)
         {
             foreach (Attribute a in selectedClass.Attributes)
             {
                 atrributes += a.Name;
-                atrributes += " ";
+                atrributes += ": ";
                 atrributes += a.Type;
                 atrributes += '\n';
             }
