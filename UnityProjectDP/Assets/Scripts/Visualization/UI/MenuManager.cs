@@ -496,7 +496,7 @@ public class MenuManager : Singleton<MenuManager>
         string[] nameFormat = name.Split('_');
         string ClassName = nameFormat[0];
         Class selectedClass = ClassDiagram.Instance.FindClassByName(ClassName);
-        string atrributes = "\nAributes:\n";
+        string atrributes = "\nAtrributes:\n";
         if (selectedClass.Attributes != null)
         {
             foreach (Attribute a in selectedClass.Attributes)
