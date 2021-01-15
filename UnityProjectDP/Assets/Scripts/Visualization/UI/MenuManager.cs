@@ -511,17 +511,15 @@ public class MenuManager : Singleton<MenuManager>
                 attributes += attribute.Name;
                 attributes += ": ";
                 attributes += attribute.Type;
-                attributes += " = ";
+                
                 if (selectedClass.Instances.Count > 0)
                 {
-                    if (selectedClass.Instances[0].State.ContainsKey(attribute.Name))
-                    {
+              
+                    if (selectedClass.Instances[0].State.ContainsKey(attribute.Name) && (selectedClass.Instances[0].State[attribute.Name] != EXETypes.UnitializedName))
+                    { 
+                        attributes += " = ";
                         attributes += selectedClass.Instances[0].State[attribute.Name];
                     } 
-                    else
-                    {
-                        attributes += EXETypes.UnitializedName;
-                    }
                 }
                 attributes += '\n';
             }
