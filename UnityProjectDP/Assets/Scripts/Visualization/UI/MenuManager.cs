@@ -35,6 +35,7 @@ public class MenuManager : Singleton<MenuManager>
     private bool isAnimating = true;
     private string methodBodyName;
     private string methodBodyClass;
+    private string currentClassName = "";
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -495,19 +496,37 @@ public class MenuManager : Singleton<MenuManager>
         }
         string[] nameFormat = name.Split('_');
         string ClassName = nameFormat[0];
-        Class selectedClass = ClassDiagram.Instance.FindClassByName(ClassName);
-        string atrributes = "\nAtrributes:\n";
+
+        if (ClassName != currentClassName)
+        {
+            currentClassName = ClassName;
+        }
+
+        CDClass selectedClass = OALProgram.Instance.ExecutionSpace.getClassByName(ClassName);
+        string attributes = "\nAttributes:\n";
         if (selectedClass.Attributes != null)
         {
-            foreach (Attribute a in selectedClass.Attributes)
+            foreach (CDAttribute attribute in selectedClass.Attributes)
             {
-                atrributes += a.Name;
-                atrributes += ": ";
-                atrributes += a.Type;
-                atrributes += '\n';
+                attributes += attribute.Name;
+                attributes += ": ";
+                attributes += attribute.Type;
+                attributes += " = ";
+                if (selectedClass.Instances.Count > 0)
+                {
+                    if (selectedClass.Instances[0].State.ContainsKey(attribute.Name))
+                    {
+                        attributes += selectedClass.Instances[0].State[attribute.Name];
+                    } 
+                    else
+                    {
+                        attributes += EXETypes.UnitializedName;
+                    }
+                }
+                attributes += '\n';
             }
         }
-        debugName.text = "Class: " + nameFormat[0] + '\n' + "Method: " + nameFormat[1] + '\n' + atrributes;
+        debugName.text = "Class: " + ClassName + '\n' + "Method: " + nameFormat[1] + '\n' + attributes;
         try
         {
             debugField.text = File.ReadAllText(@"Methods/" + name + ".oal");

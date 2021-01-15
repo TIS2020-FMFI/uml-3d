@@ -35,7 +35,7 @@ public class AnimationScriptCreator : Singleton<AnimationScriptCreator>
 
             bool skipLine = false;
             string[] words = line.Split(' ');
-
+            
             for (int i=0; i<words.Length; i++)
             {
                 if (words[i] == "to")

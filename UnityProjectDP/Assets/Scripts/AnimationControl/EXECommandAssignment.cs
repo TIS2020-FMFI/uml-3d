@@ -66,7 +66,6 @@ namespace OALProgramControl
             // We are assigning to an attribute of a variable
             else
             {
-            
                 EXEReferenceEvaluator RefEvaluator = new EXEReferenceEvaluator();
                 Result = RefEvaluator.SetAttributeValue(this.VariableName, this.AttributeName, Scope, OALProgram.ExecutionSpace, AssignedValue);
                 //Console.WriteLine("Tried to assign " + AssignedValue + " to " + this.VariableName + "." + this.AttributeName);

@@ -70,6 +70,13 @@ public class Animation : Singleton<Animation>
         Debug.Log("Code: ");
         Debug.Log(Code);
         OALProgram.Instance.SuperScope = OALParserBridge.Parse(Code);
+
+        foreach (CDClass Class in Program.ExecutionSpace.ClassPool)
+        {
+            EXECommandQueryCreate CreateCommand = new EXECommandQueryCreate(Class.Name);
+            Program.SuperScope.Commands.Insert(0, CreateCommand);
+        }
+
         ACS = new AnimationCommandStorage();
         bool temp = Program.PreExecute(ACS);
         Debug.Log("Done executing: " + temp.ToString());

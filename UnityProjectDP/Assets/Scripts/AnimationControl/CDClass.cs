@@ -10,9 +10,9 @@ namespace OALProgramControl
     public class CDClass
     {
         public string Name { get; set; }
-        private List<CDAttribute> Attributes { get; }
+        public List<CDAttribute> Attributes { get; }
         private List<CDMethod> Methods { get; }
-        private List<CDClassInstance> Instances { get; }
+        public List<CDClassInstance> Instances { get; }
 
         public CDClass(String Name)
         {
