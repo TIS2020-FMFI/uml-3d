@@ -1,3 +1,5 @@
+select any this from instances of ProductionUnit;
+this.GoldCost = 333;
 call from ProductionUnit::Enqueue() to Unit::Move() across R4;
 
 

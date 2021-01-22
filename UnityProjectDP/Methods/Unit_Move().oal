@@ -1,1 +1,6 @@
-call from Unit::Move() to PlayerObject::Select() across R3;
+select any t from instances of Unit;
+t.CritDamage = 2;
+
+if t.CritDamage > 0
+    call from Unit::Move() to PlayerObject::Select() across R3;
+end if;

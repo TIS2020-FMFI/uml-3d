@@ -1,12 +1,11 @@
 x = 1;
-select any this from instances of Unit;
-this.CritDamage = 5;
-this.CritChance = 0;
-while (TRUE)
-this.CritChance = this.CritChance + 5;
-x = x + 1;
-call from Unit::Die() to PlayerObject::Die() across R3;
-if x > 3
-break;
-end if;
+
+select any this1 from instances of Unit;
+this1.CritDamage = 5;
+this1.CritChance = 0;
+
+while (x < 4)
+    this1.CritChance = this1.CritChance + 5;
+    x = x + 1;
+    call from Unit::Die() to PlayerObject::Die() across R3;
 end while;
