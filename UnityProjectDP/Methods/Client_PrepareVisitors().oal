@@ -1,0 +1,1 @@
+call from Client:: PrepareVisitors() to OfferVisitor::visitGoldCreditCard() across R5;

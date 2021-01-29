@@ -6,6 +6,7 @@ using System;
 using OALProgramControl;
 using Assets.Scripts.Animation;
 using System.IO;
+using System.Text;
 
 public class MenuManager : Singleton<MenuManager>
 {
@@ -24,10 +25,17 @@ public class MenuManager : Singleton<MenuManager>
     private TMP_Text methodCaption;
     [SerializeField]
     private GameObject panelBody;
+    [SerializeField]
+    private GameObject debugWindow;
+    [SerializeField]
+    private TMP_InputField debugField;
+    [SerializeField]
+    private TMP_Text debugName;
 
     private bool isAnimating = true;
     private string methodBodyName;
     private string methodBodyClass;
+    private string currentClassName = "";
     //------------------------- my Code
     [SerializeField]
     private GameObject introScreen;
@@ -165,7 +173,6 @@ public class MenuManager : Singleton<MenuManager>
     {
         try
         {
-            //string[] lines = File.ReadAllLines(@"Methods/" + methodBodyName + ".oal");
             return File.ReadAllText(@"Methods/" + methodBodyName + ".oal");
         }
         catch (IOException e)
@@ -334,6 +341,7 @@ public class MenuManager : Singleton<MenuManager>
     {
         methodCode.GetComponent<CodeHighlighter>().RemoveColors();
         MethodBody newMethod = new MethodBody("", methodCode.text);
+        
         Animation.Instance.UnhighlightAll();
         string[] lines = methodCode.text.Split('\n');
         using (System.IO.StreamWriter file =
@@ -365,7 +373,6 @@ public class MenuManager : Singleton<MenuManager>
             scriptCode.text = AnimationData.Instance.selectedAnim.Code;
             AnimationData.Instance.RemoveAnim(AnimationData.Instance.selectedAnim);
             UpdateAnimations();
-
         }
     }
     public void ActivatePanelColors(bool show)
@@ -416,8 +423,24 @@ public class MenuManager : Singleton<MenuManager>
             //My code------------
             panelSavedCode.SetActive(true);
             introScreen.SetActive(false);
+            debugWindow.SetActive(true);
+            debugField.text = "";
             savedScript.text = AnimationData.Instance.selectedAnim.Code;
             Animation.Instance.script = savedScript;
+            string checkFile = "Client::startVisitorScenario()";
+            if (AnimationData.Instance.selectedAnim.Code == checkFile)
+            {
+                AnimationScriptCreator.Instance.fileName = checkFile;
+                AnimationScriptCreator.Instance.initConstructing();
+                savedScript.text = AnimationScriptCreator.Instance.ScriptText;
+
+                string code = savedScript.text;
+                Anim loadedAnim = new Anim("Client::startVisitorScenario()", code);
+                scriptCode.text = savedScript.text;
+                AnimationData.Instance.selectedAnim = loadedAnim;
+                
+                Animation.Instance.script = savedScript;
+            }
             //My code------------
             if (Animation.Instance.standardPlayMode)
             {
@@ -459,6 +482,56 @@ public class MenuManager : Singleton<MenuManager>
             Animation.Instance.standardPlayMode = true;
             panelStepMode.SetActive(false);
             panelPlayMode.SetActive(true);
+        }
+    }
+
+    public void fillDebugWindow(String name)
+    {
+
+        if (name == "NULL")
+        {
+            debugName.text = "Debug Window";
+            debugField.text = "";
+            return;
+        }
+        string[] nameFormat = name.Split('_');
+        string ClassName = nameFormat[0];
+
+        if (ClassName != currentClassName)
+        {
+            currentClassName = ClassName;
+        }
+
+        CDClass selectedClass = OALProgram.Instance.ExecutionSpace.getClassByName(ClassName);
+        string attributes = "\nAttributes:\n";
+        if (selectedClass.Attributes != null)
+        {
+            foreach (CDAttribute attribute in selectedClass.Attributes)
+            {
+                attributes += attribute.Name;
+                attributes += ": ";
+                attributes += attribute.Type;
+                
+                if (selectedClass.Instances.Count > 0)
+                {
+              
+                    if (selectedClass.Instances[0].State.ContainsKey(attribute.Name) && (selectedClass.Instances[0].State[attribute.Name] != EXETypes.UnitializedName))
+                    { 
+                        attributes += " = ";
+                        attributes += selectedClass.Instances[0].State[attribute.Name];
+                    } 
+                }
+                attributes += '\n';
+            }
+        }
+        debugName.text = "Class: " + ClassName + '\n' + "Method: " + nameFormat[1] + '\n' + attributes;
+        try
+        {
+            debugField.text = File.ReadAllText(@"Methods/" + name + ".oal");
+        }
+        catch (IOException e)
+        {
+            debugField.text = "";
         }
     }
 }

@@ -1,1 +1,10 @@
+x = 1;
+while (TRUE)
+x = x + 1;
+call from OfferVisitor::visitGoldCreditCard() to GoldCreditCard::getGoldCardValue() across R11;
+if x > 10
+break;
+end if;
+end while;
+
 

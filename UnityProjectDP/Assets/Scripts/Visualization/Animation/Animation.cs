@@ -30,7 +30,6 @@ public class Animation : Singleton<Animation>
     private bool prevStep = false;
     private List<GameObject> Fillers;
     ///
-    private ScriptParser sp;
     public TMP_InputField script;
     private string originalText;
     private int my_index;
@@ -71,6 +70,13 @@ public class Animation : Singleton<Animation>
         Debug.Log("Code: ");
         Debug.Log(Code);
         OALProgram.Instance.SuperScope = OALParserBridge.Parse(Code);
+
+        foreach (CDClass Class in Program.ExecutionSpace.ClassPool)
+        {
+            EXECommandQueryCreate CreateCommand = new EXECommandQueryCreate(Class.Name);
+            Program.SuperScope.Commands.Insert(0, CreateCommand);
+        }
+
         ACS = new AnimationCommandStorage();
         bool temp = Program.PreExecute(ACS);
         Debug.Log("Done executing: " + temp.ToString());
@@ -208,6 +214,13 @@ public class Animation : Singleton<Animation>
     //Method used to Highlight/Unhighlight single method by name, depending on bool value of argument 
     public void HighlightMethod(string className, string methodName, bool isToBeHighlighted)
     {
+        if (isToBeHighlighted)
+        {
+            MenuManager.Instance.fillDebugWindow(className + "_" + methodName + "()");
+        }
+        
+
+
         GameObject node = classDiagram.FindNode(className);
         TextHighlighter th = null;
         if (node != null)
@@ -273,6 +286,7 @@ public class Animation : Singleton<Animation>
             }
             else
             {
+                
                 switch (step)
                 {
                     case 0: ScriptParser.Instance.HighlightClass(my_index, script); HighlightClass(Call.CallerClassName, true); break;
@@ -287,13 +301,16 @@ public class Animation : Singleton<Animation>
                         HighlightClass(Call.CalledClassName, false);
                         HighlightMethod(Call.CalledClassName, Call.CalledMethodName, false);
                         HighlightEdge(Call.RelationshipName, false);
+                        MenuManager.Instance.fillDebugWindow("NULL");
                         timeModifier = 1f;
                         my_index++;
                         script.text = originalText;
                         break;
 
                 }
+                
                 step++;
+                
                 if (standardPlayMode)
                 {
                     yield return new WaitForSeconds(AnimationData.Instance.AnimSpeed * timeModifier);
@@ -335,6 +352,7 @@ public class Animation : Singleton<Animation>
                     prevStep = false;
                 }
             }
+            my_index = 0;
         }
     }
     

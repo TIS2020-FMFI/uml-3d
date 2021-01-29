@@ -1,0 +1,7 @@
+select any this2 from instances of PlayerObject;
+this2.Defense = 1;
+this2.HP = 0;
+this2.ScreenName = "TIS";
+
+call from PlayerObject::Select() to Unit::Die() across R3;
+
