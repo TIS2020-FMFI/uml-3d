@@ -11,4 +11,4 @@ Zadávateľ: doc. Ing. Ivan Polášek, PhD.
 2. Implementácii debug módu pre analytika / používateľa
 
 Link na videoprezentáciu:
-https://drive.google.com/file/d/1xJdgeLbybKJB54_w_FAV-d_3WoHEoIFe/view?usp=sharing
+https://drive.google.com/file/d/1rlxnYxNvgX0yM6yGHAGKGrXamgHSlI4K/view?usp=sharing
